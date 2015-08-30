@@ -32,7 +32,7 @@ gem 'jbuilder'
 #add device gem - Flexible authentication solution for Rails
 gem 'devise', '3.5.2'
 #add bootstarap gem
-gem 'bootstrap-sass', '3.3.5.1'
+gem 'bootstrap-sass', '2.3.2.0'
 
 group :development, :test do
   # Use postgresql as the database for Active Record
