@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter project name..."  %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions pull-right">
+      <%= link_to 'Close', root_path, class: "btn btn-default" %>
+      <%= f.submit "Ok", class: "btn btn-primary" %>
+    </div>
+
 <% end %>
