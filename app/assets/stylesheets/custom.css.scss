@@ -95,3 +95,44 @@ footer {
     }
   }
 }
+
+/* lists*/
+
+.edit-list {
+  display: none;
+  vertical-align: middle;
+}
+
+.list-header {
+  margin-top: 20px;
+  background: linear-gradient(to bottom, #5681b6 0%,#335791 100%);
+  border: 1px solid #315589;
+  border-radius: 2px 2px 0 0;
+}
+
+.project {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  color: #fff;
+  text-shadow:0 1px 0 #28405D;
+  width: 560px;
+  margin: 13px 0;
+}
+
+.line {
+  vertical-align: middle;
+  display: inline-block;
+  border-right: 1px solid #5284BF;
+  height: 16px;
+  margin: 0;
+}
+
+
+.link-list {
+  padding: 15px 10px;
+}
+
+.note-img {
+  margin: 13px 10px;
+}
