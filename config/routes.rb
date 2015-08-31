@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do
-    # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session_path
+    get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session_path
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session_path
   end
   # The priority is based upon order of creation: first created -> highest priority.
