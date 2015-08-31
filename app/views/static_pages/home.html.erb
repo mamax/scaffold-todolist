@@ -7,6 +7,51 @@
       <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
     </div>
 
+    <% @projects.each do |project| %>
+        <div class="center hero-unit">
+
+          <div class="list-header">
+            <%= image_tag("table.png", class: "note-img") %>
+
+            <div class="project">
+              <%= project.name %>
+            </div>
+            <div class="edit-list">
+              <%= link_to "edit", edit_project_path(project) %>
+              <div class="line"></div>
+              <%= link_to "delete", project, method: :delete %>
+            </div>
+          </div>
+
+          <%= form_for(:task, url: tasks_path, html: { class: "add-task"}) do |f| %>
+              <%= image_tag("Green.png", class: "greenplus")%>
+              <%= f.text_field :content, placeholder: "Enter the name of the task..." %>
+              <%= f.hidden_field :project_id , value: project.id%>
+              <%= f.submit "Add Task" %>
+          <% end %>
+
+          <ul id="project<%=project.id%>" class="task-list">
+            <% project.tasks.each do |task| %>
+                <li class="task" id="task_<%= task.id %>" >
+                  <%= check_box_tag task.id, task.id, task.done, class: "task-check" %>
+
+                  <label for=<%=task.id %> ></label>
+                  <p><%= task.content %></p>
+
+                  <div class="control-task">
+                    <span class="glyphicon glyphicon-move"></span>
+
+                    <%= link_to "edit", edit_task_path(task) %>
+
+                    <div class="line"></div>
+                    <%= link_to "delete", task, method: :delete %>
+                  </div>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="center">
       <%= link_to "Add TODO list", new_project_path, class: "btn btn-large btn-primary" %>
     </div>
