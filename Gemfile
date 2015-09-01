@@ -33,19 +33,17 @@ gem 'jbuilder'
 gem 'devise', '3.5.2'
 #add bootstarap gem
 gem 'bootstrap-sass', '2.3.2.0'
+#add rspec tests gem
+gem 'rspec-rails', '3.3.3'
+#add facebook authentification gem
+gem 'omniauth-facebook', '2.0.1'
 
 group :development, :test do
-  # Use postgresql as the database for Active Record
-  gem 'pg'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  gem 'rspec-rails', '3.3.3'
-
-  gem 'omniauth-facebook', '2.0.1'
 
 end
 
@@ -63,6 +61,7 @@ group :test do
 end
 
 group :production do
+  gem 'pg'
   gem 'rails_12factor', '0.0.3'
 end
 
