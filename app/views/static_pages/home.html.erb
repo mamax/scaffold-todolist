@@ -16,11 +16,8 @@
             <div class="project">
               <%= project.name %>
             </div>
-            <div class="edit-list">
-              <%= link_to "edit", edit_project_path(project) %>
-              <div class="line"></div>
-              <%= link_to "delete", project, method: :delete %>
-            </div>
+                <%= link_to "#{image_tag("edit_img.png", class: "edit-project")}".html_safe, edit_project_path(project) %>
+                <%= link_to "#{image_tag("delete_img.png", class: "delete-project")}".html_safe, project, method: :delete %>
           </div>
 
           <%= form_for(:task, url: tasks_path, html: { class: "add-task"}) do |f| %>

@@ -1,8 +1,6 @@
 <%= form_for(@project) do |f| %>
-
    <%= render 'projects/error_messages'  %>
     <div class="form-group">
-    <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control", placeholder: "Enter project name..."  %>
   </div>
     <div class="actions pull-right">
