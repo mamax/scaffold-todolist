@@ -8,9 +8,9 @@
     </div>
 
     <% @projects.each do |project| %>
-        <div class="center hero-unit">
+        <div class="center unit">
 
-          <div class="list-header">
+          <div class="project-header">
             <%= image_tag("table.png", class: "note-img") %>
 
             <div class="project">
@@ -21,7 +21,7 @@
           </div>
 
           <%= form_for(:task, url: tasks_path, html: { class: "add-task"}) do |f| %>
-              <%= image_tag("Green.png", class: "greenplus")%>
+              <%= image_tag("Green.png", class: "plus-button")%>
               <%= f.text_field :content, placeholder: "Enter the name of the task..." %>
               <%= f.hidden_field :project_id , value: project.id%>
               <%= f.submit "Add Task" %>
@@ -29,19 +29,17 @@
 
           <ul id="project<%=project.id%>" class="task-list">
             <% project.tasks.each do |task| %>
-                <li class="task" id="task_<%= task.id %>" >
+                <li class="task" id="task_<%= task.id %>">
                   <%= check_box_tag task.id, task.id, task.done, class: "task-check" %>
 
                   <label for=<%=task.id %> ></label>
                   <p><%= task.content %></p>
 
                   <div class="control-task">
-                    <span class="glyphicon glyphicon-move"></span>
+                    <%= link_to "#{image_tag("task_edit_img.png", class: "edit-task")}".html_safe, edit_task_path(task) %>
 
-                    <%= link_to "edit", edit_task_path(task) %>
-
-                    <div class="line"></div>
-                    <%= link_to "delete", task, method: :delete %>
+                    <div class="twoline"></div>
+                    <%= link_to "#{image_tag("task_delete_img.png", class: "delete-task")}".html_safe, task, method: :delete %>
                   </div>
                 </li>
             <% end %>
